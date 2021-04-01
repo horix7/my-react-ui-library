@@ -4,7 +4,7 @@ import { ExampleComponent } from 'react_ui_library'
 import 'react_ui_library/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <ExampleComponent text="Paul Library 😄" />
 }
 
 export default App

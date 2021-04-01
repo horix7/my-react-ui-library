@@ -1,0 +1,29 @@
+
+.shop_navigation {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    background-color: rgb(205, 205, 255)
+}
+
+.navigation {
+    text-align: end;
+}
+
+.navigation .ul {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.navigation .ul .li {
+    width: fit-content;
+}
+
+.logo_holder {
+    height: 100%;
+    width: 100%;
+}
+ul {
+    list-style-type: none;
+}
