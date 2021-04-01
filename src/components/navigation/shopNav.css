@@ -27,3 +27,16 @@
 ul {
     list-style-type: none;
 }
+
+.nav_icons {
+    color: black;
+
+}
+
+.icon_holder {
+    margin-left: 10px;
+    color: rgb(19, 19, 31);
+}
+
+
+

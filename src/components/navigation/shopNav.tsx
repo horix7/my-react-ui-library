@@ -1,22 +1,16 @@
 import React, {Component, Fragment } from 'react'
 import classes from './shopNav.css'
-import { Shop , ShoppingCart } from '@material-ui/icons'
+import { Person, Search, LocalGroceryStore } from '@material-ui/icons'
 import { List ,ListItem, ListItemIcon, ListItemText, Select , ListItemAvatar, MenuItem } from "@material-ui/core";
 import Logo from '../../assets/archive.svg'
+
 
 
 export default class ShopNav extends Component<any> {
 
     render () {
         const list = [
-            {
-                icon: Shop,
-                tittle: "store"
-            },
-            {
-                icon: ShoppingCart,
-                tittle: "Cart"
-            },
+           
             {
                 component: (
             <Select>
@@ -27,9 +21,24 @@ export default class ShopNav extends Component<any> {
                 )
             },
             {
-                icon: ShoppingCart,
-                tittle: "Cart"
-            }
+                component: (
+                    <div className={classes.nav_icons}>
+                        <Person className={classes.icon_holder}/>
+                        <Search className={classes.icon_holder} />
+                        <LocalGroceryStore className={classes.icon_holder} />
+                    </div>
+                )
+            },
+            {
+                tittle: "COLLECTIONS"
+            },
+            {
+                tittle: "SHOP"
+            },
+            {
+                tittle: "HOME"
+            },
+
         ]
         return (
             <Fragment>
@@ -42,18 +51,15 @@ export default class ShopNav extends Component<any> {
                         </ListItemAvatar>
                         <ListItemText primary={this.props.text}/>
                        </ListItem>
-                    </List>    
+                    </List>
                     </section>
                     <section className={classes.navigation}>
                         <List className={classes.ul}>
                             {list.map((elem: any ) => {
-                                return elem.component ?  (
-                                 <ListItem className={classes.li}> 
-                                    {elem.component}
-                                 </ListItem>   
-                                ) : (<ListItem className={classes.li}> 
-                                        <ListItemIcon> <elem.icon/>  </ListItemIcon>
-                                        <ListItemText primary={elem.tittle } />
+                                return  (<ListItem className={classes.li}> 
+                                        {elem.icon ? <ListItemIcon>  <elem.icon/> </ListItemIcon> : null}
+                                        {elem.component ? elem.component : null}
+                                        {elem.tittle ? <ListItemText primary={elem.tittle } /> : null}
                                     </ListItem>)
                             })}
                         </List>
