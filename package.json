@@ -1,8 +1,8 @@
 {
-  "name": "react_ui_library",
+  "name": "horik-ui-library",
   "version": "1.0.0",
   "description": "react web ui libraries",
-  "author": "paul mahoro ",
+  "author": "horix77",
   "license": "MIT",
   "repository": "horix/ui_library",
   "main": "dist/index.js",
