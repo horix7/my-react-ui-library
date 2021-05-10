@@ -21,7 +21,22 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function ButtonAppBar() {
+
+interface Navbar {
+    links: {
+        left: [ {[key: string] : string} ],
+        right: [ {[key: string] : string}],
+    },
+    search: boolean,
+    title: string,
+    brand: {
+        logo: string
+    }
+
+}
+
+
+export default function AppNavBar(props: Navbar) {
   const classes = useStyles();
 
   return (
@@ -32,7 +47,7 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+            {props.title}
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
