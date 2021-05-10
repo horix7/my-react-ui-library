@@ -13,14 +13,25 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function BasicTextFields() {
+
+
+interface InputProps {
+    input: {
+        label: String,
+        placeholder: String,
+        value: String,
+        styleType: any,
+        updateValue: Function
+    }
+}
+
+export default function BasicTextFields(props: InputProps) {
   const classes = useStyles();
+  const inputTypes: any[] = ["", "filled", "outlined"]
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="standard-basic" label="Standard" />
-      <TextField id="filled-basic" label="Filled" variant="filled" />
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <TextField id="filled-basic" label={props.input.label} variant={inputTypes[props.input.styleType]} />
     </form>
   );
 }

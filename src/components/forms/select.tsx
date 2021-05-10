@@ -18,23 +18,36 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function SimpleSelect() {
-  const classes = useStyles();
-  const [age, setAge] = React.useState('');
+interface SelectProps {
+    input: {
+        label: String,
+        placeholder: String,
+        value: String,
+        id: String,
+        styleType: any,
+        updateValue: Function
+    },
+    select: {
+        options: any[],
+        defaults: any[],
+        value: String | Number,
+        updateValue: Function
 
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setAge(event.target.value as string);
-  };
+    }
+}
+
+export default function SelectInput(props: SelectProps) {
+  const classes = useStyles();
 
   return (
     <div>
          <FormControl variant="filled" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-filled-label">Age</InputLabel>
+        <InputLabel id={props.input.label  + "-" +  props.input.id}> {props.input.label}</InputLabel>
         <Select
-          labelId="demo-simple-select-filled-label"
-          id="demo-simple-select-filled"
-          value={age}
-          onChange={handleChange}
+          labelId={props.input.label + "-" + props.input.id}
+          id={props.input.id}
+          value={props.select.value}
+          onChange={props.select.updateValue}
         >
           <MenuItem value="">
             <em>None</em>
