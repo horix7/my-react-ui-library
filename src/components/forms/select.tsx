@@ -23,15 +23,18 @@ interface SelectProps {
         label: String,
         placeholder: String,
         value: String,
-        id: String,
+        id: string,
         styleType: any,
         updateValue: Function
     },
     select: {
-        options: any[],
-        defaults: any[],
+        defaults: {
+            value: String | Number,
+            label: String | Number 
+        },
+        options:[{[key: string] : any }],
         value: String | Number,
-        updateValue: Function
+        updateValue: any
 
     }
 }
@@ -50,11 +53,10 @@ export default function SelectInput(props: SelectProps) {
           onChange={props.select.updateValue}
         >
           <MenuItem value="">
-            <em>None</em>
+            <em>{props.select.defaults.label}</em>
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {props.select.options.map((element, index) => <MenuItem key={index} value={element.value}>{ element.label } </MenuItem> )}
+
         </Select>
       </FormControl>
     </div>
