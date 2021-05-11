@@ -16,12 +16,12 @@ const useStyles = makeStyles((theme: Theme) =>
 
 
 interface InputProps {
-    input: {
-        label: String,
-        placeholder: String,
-        value: String,
-        styleType: any,
-        updateValue: Function
+    input?: {
+        label?: String,
+        placeholder?: String,
+        value?: String,
+        styleType?: any,
+        updateValue?: Function
     }
 }
 
@@ -31,7 +31,7 @@ export default function BasicTextFields(props: InputProps) {
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="filled-basic" label={props.input.label} variant={inputTypes[props.input.styleType]} />
+      <TextField id="filled-basic" label={props.input?.label} variant={inputTypes[props.input?.styleType]} />
     </form>
   );
 }

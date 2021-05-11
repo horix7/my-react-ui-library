@@ -24,13 +24,13 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface Navbar {
     links: {
-        left: [ {[key: string] : string} ],
-        right: [ {[key: string] : string}],
+        left?: [ {[key: string] : string} ],
+        right?: [ {[key: string] : string}],
     },
-    search: boolean,
-    title: string,
-    brand: {
-        logo: string
+    search?: boolean,
+    title?: string,
+    brand?: {
+        logo?: string
     }
 
 }
