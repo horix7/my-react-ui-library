@@ -13,7 +13,7 @@ export const ExampleComponent = ({ text }: Props) => {
   return (
     <React.Fragment>
       <ShopNav  text={text} />
-    <br />
+    <br /> 
       <ProductCard />
       <Input input={{ 
         label: "String",
